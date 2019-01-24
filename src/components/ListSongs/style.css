@@ -1,0 +1,10 @@
+ul {
+	width: 60%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.item-list {
+	list-style: none;
+	margin: 2px;
+}
