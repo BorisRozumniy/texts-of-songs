@@ -27,25 +27,25 @@ class App extends Component {
     );
   }
 
-  addSong = ref => {
-    const strs = ref.split('\n')
-    const song = {
-      id: Date.now(),
-      title: strs[0],
-      text: ref
+  splitSong = (ref, id) => {
+    const 
+      strs = ref.split ('\n'),
+      title = strs.splice(0, 1);
+    return {
+      id: id ? id : Date.now(),
+      title: title.join(''),
+      text: strs.join('\n')
     }
+  }
 
-    this.props.onAddSong( song )
+  addSong = ref => {
+    let res = this.splitSong(ref)
+    this.props.onAddSong( res )
   }
 
   editSong = ( song, index, ref ) => {
-    const strs = ref.split('\n')
-    const edited = {
-      id: song.id,
-      title: strs[0],
-      text: ref
-    }
-    this.props.onEditSong ( edited, index )
+    let res = this.splitSong(ref, song.id)
+    this.props.onEditSong ( res, index )
   }
 
   deleteSong = index =>

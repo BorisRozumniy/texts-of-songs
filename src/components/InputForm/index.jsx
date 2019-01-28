@@ -9,13 +9,14 @@ class InputForm extends React.Component {
 		// console.log()
 
 		return (
-			<div className={btnText === "Search" ? "search test" : "add test"}>
+			<div className={btnText === "Search" ? "search text" : "add text"}>
 				{btnText === "Add" ?
 				<textarea type="text" 
 					onChange={this.changeHendler}
 					ref={input => this.inputText = input}
 					rows="4" 
 					cols="50"
+					placeholder='if you want to separate the verses from each other you need to put "-/" between the'
 				/>
 				:
 				<input type="text" 
@@ -27,7 +28,6 @@ class InputForm extends React.Component {
 					onClick={this.btnHendler}>
 					{this.props.btnText}
 				</button>
-				{/*<input type="button" value={this.props.btnText} onClick={this.btnHendler}/>*/}
 	        </div>
 		)
 	}

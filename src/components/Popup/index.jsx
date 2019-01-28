@@ -14,8 +14,14 @@ class Popup extends React.Component {
             defaultValue={song.text}
             ref={input => this.editText = input}>
           </textarea>
-        	<button className="btn save" onClick={ () => {saveHendler(this.editText); openEditHendler()} }>Save</button>
-          <button className="btn delete" onClick={deleteHendler}>Delete</button>
+        	<button 
+            className="btn save" 
+            onClick={ () => {saveHendler(this.editText); openEditHendler()} }
+          >Save</button>
+          <button 
+            className="btn delete" 
+            onClick={ () => {deleteHendler(); openEditHendler()} }
+          >Delete</button>
           <button className="btn close" onClick={openEditHendler}>Close</button>
             
         </div>
